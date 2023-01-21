@@ -13,11 +13,34 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();
     setText(newText);
   }
+  const handleCaClick = ()=>{ //TO CAPITALIZE FIRST CHAR OF EACH WORD
+    const arr = text.split(" ");
+
+    //loop through each element of the array and capitalize the first letter.
+
+
+    for (var i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1).toLowerCase();
+
+    }
+
+    //Join all the elements of the array back into a string 
+    //using a blankspace as a separator 
+    const str2 = arr.join(" ");
+    let newText = str2;
+    setText(newText);
+  }
+  const handleClClick = ()=>{
+    //console.log("Upper was clicked" + text);
+    let newText = '';
+    setText(newText);
+  }
   const handleOnChange = (event)=>{
     //console.log("on change");
     setText(event.target.value);
+    
   }
-  const [text, setText] = useState('enter text here');
+  const [text, setText] = useState('');
   return (
     
       <>
@@ -28,7 +51,9 @@ export default function TextForm(props) {
         <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="11"></textarea>
         </div>
         <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Upper Case</button>
-        <button className="btn btn-danger" onClick={handleLoClick}>Convert to Lower Case</button>
+        <button className="btn btn-danger mx-2" onClick={handleLoClick}>Convert to Lower Case</button>
+        <button className="btn btn-dark mx-2" onClick={handleCaClick}>Capitalize first Char</button>
+        <button className="btn btn-success mx-2" onClick={handleClClick}>Clear Text</button>
 
     </div>
     <div className="container my-4">
