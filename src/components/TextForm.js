@@ -59,7 +59,7 @@ export default function TextForm(props) {
         <h1>{props.heading}</h1>
         <div className="mb-3">
         
-        <textarea className="form-control" value={text} style={ { backgroundColor: props.mode==='light'?'white':'darkgrey', color: props.mode==='light'?'black':'white'} } onChange={handleOnChange}/*taki type kr sku(value ko state variable ki tarah use kr rhe hai)*/ id="myBox" rows="11"></textarea>
+        <textarea className="form-control" value={text} style={ { backgroundColor: props.mode==='light'?'white':'#042743', color: props.mode==='light'?'black':'white'} } onChange={handleOnChange}/*taki type kr sku(value ko state variable ki tarah use kr rhe hai)*/ id="myBox" rows="11"></textarea>
         </div>
         <button className="btn btn-secondary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
         <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Upper Case</button>
@@ -74,7 +74,7 @@ export default function TextForm(props) {
       <p>{text.split(" ").length} words and {text.length} characters.</p>
       <p> {0.008*(text.split(" ").length) } Minutes read</p>
       <h2>Preview </h2>
-      <p>{text}</p>
+      <p>{text.length>0?text:"Enter something in the Text box above to preview it here... "}</p>
     </div>
     </>
   )
