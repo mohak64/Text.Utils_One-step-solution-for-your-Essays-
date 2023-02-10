@@ -59,7 +59,7 @@ export default function TextForm(props) {
         <h1>{props.heading}</h1>
         <div className="mb-3">
         
-        <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="11"></textarea>
+        <textarea className="form-control" value={text} onChange={handleOnChange}/*taki type kr sku(value ko state variable ki tarah use kr rhe hai)*/ id="myBox" rows="11"></textarea>
         </div>
         <button className="btn btn-secondary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
         <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Upper Case</button>
