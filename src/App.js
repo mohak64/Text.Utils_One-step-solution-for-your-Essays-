@@ -9,8 +9,8 @@ import TextForm from './components/TextForm';
 function App() {
   const [mode,setMode] = useState('light'); // wheather dark mode is enabled or not
 
-  return (
-    <>
+  return ( //  jsx for-htmlFor, class- className, tab-tabIndex, <>- jsx fragment, js likhne ke liye use {}
+    <> 
       <Navbar title="TEXT-UTILS" aboutText="About Us" mode={mode}/>
       <div className="container my-3">
       {/*<About/>*/}
