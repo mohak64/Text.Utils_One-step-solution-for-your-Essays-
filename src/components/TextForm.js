@@ -3,6 +3,12 @@ import React, {useState} from 'react'
 
 
 export default function TextForm(props) {
+  
+  const handleOnChange = (event)=>{
+    //console.log("on change");
+    setText(event.target.value); // isse type kr payenge
+    
+  }
   const handleUpClick = ()=>{
     //console.log("Upper was clicked" + text);
     let newText = text.toUpperCase();
@@ -35,11 +41,6 @@ export default function TextForm(props) {
     let newText = '';
     setText(newText);
   }
-  const handleOnChange = (event)=>{
-    //console.log("on change");
-    setText(event.target.value);
-    
-  }
   const handleCopy = () => {
     let text= document.getElementById("myBox");
     text.select();
@@ -50,7 +51,7 @@ export default function TextForm(props) {
     setText(newText.join(" "))
   }
 
-  const [text, setText] = useState('');
+  const [text, setText] = useState('Enter Text Here');
   return (
     
       <>
