@@ -51,6 +51,7 @@ function App() {
     }
   }
   return ( //  jsx for-htmlFor, class- className, tab-tabIndex, <>- jsx fragment, js likhne ke liye use {}
+  //complete matching ke liye use exact !!
     <> 
           <BrowserRouter>
           <Navbar title="TEXT-UTILS" aboutText="About Us" mode={mode} toggleMode={toggleMode}/>
