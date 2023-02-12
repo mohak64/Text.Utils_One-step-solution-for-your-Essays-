@@ -3,8 +3,15 @@ import { useState } from 'react'; //imrs
 import './App.css';
 //import About from './components/About';
 import Navbar from './components/Navbar';
+import About from './components/About';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  
+} from "react-router-dom";
 
 
 function App() {
@@ -26,7 +33,7 @@ function App() {
     setMode('dark');
     document.body.style.backgroundColor = '#042743';
     showAlert("Dark mode has been enabled","success");
-    document.title = 'TextUtils-Home.DarkMode';
+    document.title = 'TextUtils-Home-DarkMode';
     /*  title chamkane ke liyee!!
     setInterval(() => {
       document.title= 'TextUtils is Amazing!!'
@@ -40,18 +47,23 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled","success");
-      document.title = 'TextUtils-Home.LightMode';
+      document.title = 'TextUtils-Home-LightMode';
     }
   }
   return ( //  jsx for-htmlFor, class- className, tab-tabIndex, <>- jsx fragment, js likhne ke liye use {}
     <> 
-      <Navbar title="TEXT-UTILS" aboutText="About Us" mode={mode} toggleMode={toggleMode}/>
-      <Alert alert={alert}/>
-      <div className="container my-3">
-      {/*<About/>*/}
-      <TextForm showAlert={showAlert} heading="Enter the Text to analyze " mode={mode}/>
+          <BrowserRouter>
+          <Navbar title="TEXT-UTILS" aboutText="About Us" mode={mode} toggleMode={toggleMode}/>
+          <Alert alert={alert}/>
+          
+          <div className="container">
+          <Routes>
+          <Route exact path="/" element= {<TextForm heading="Enter the text to analyse: " mode={mode}/>} />
+          <Route exact path="/about" element={<About/>} />
+          </Routes>
+          </div>
+          </BrowserRouter>
       
-      </div>
       
     </>
     
