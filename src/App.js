@@ -26,11 +26,13 @@ function App() {
     setMode('dark');
     document.body.style.backgroundColor = '#042743';
     showAlert("Dark mode has been enabled","success");
+    document.title = 'TextUtils-Home.DarkMode'
     }
     else{
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled","success");
+      document.title = 'TextUtils-Home.LightMode'
     }
   }
   return ( //  jsx for-htmlFor, class- className, tab-tabIndex, <>- jsx fragment, js likhne ke liye use {}
