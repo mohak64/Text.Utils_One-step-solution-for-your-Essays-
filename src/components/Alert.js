@@ -1,13 +1,18 @@
 import React from 'react' //rfce
 
-function Alert() {
+function Alert(props) {
+  /*const capitalize = (word)=>{
+    const lower = word;
+    let newText=lower.charAt(0).toupperCase() + lower.slice(1).toLowerCase();
+    return newText;
+  }*/
   return (
-    <div>
-        <div className="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        //agar props.alert null hai toh kuch ni milega vrna and ke baad wala milega!!
+        props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+            <strong>{props.alert.type}</strong>: {props.alert.msg}
+      
         </div>
-    </div>
+    
   )
 }
 

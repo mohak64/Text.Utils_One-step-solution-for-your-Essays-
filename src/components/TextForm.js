@@ -13,11 +13,13 @@ export default function TextForm(props) {
     //console.log("Upper was clicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Coverted to Upper case", "success");
   }
   const handleLoClick = ()=>{
     //console.log("Upper was clicked" + text);
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Coverted to Lower case", "success");
   }
   const handleCaClick = ()=>{ //TO CAPITALIZE FIRST CHAR OF EACH WORD
     const arr = text.split(" ");
@@ -45,6 +47,7 @@ export default function TextForm(props) {
     let text= document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Data is Copied", "success");
   }
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
