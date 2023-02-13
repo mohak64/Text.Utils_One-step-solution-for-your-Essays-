@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 
 
-function App() {
+function App() { //function
   const [mode,setMode] = useState('light'); // wheather dark mode is enabled or not
   const [alert, setAlert] = useState(null); //alert ek obkect hai
 
