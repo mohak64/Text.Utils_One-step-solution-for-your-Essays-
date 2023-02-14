@@ -47,6 +47,7 @@ export default function TextForm(props) {
     let text= document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges(); //to deselect the selected while copying
     props.showAlert("Data is Copied", "success");
   }
   const handleExtraSpaces = () => {
@@ -64,12 +65,12 @@ export default function TextForm(props) {
         
         <textarea className="form-control" value={text} style={ { backgroundColor: props.mode==='light'?'white':'#042743', color: props.mode==='light'?'black':'white'} } onChange={handleOnChange}/*taki type kr sku(value ko state variable ki tarah use kr rhe hai)*/ id="myBox" rows="11"></textarea>
         </div>
-        <button className="btn btn-secondary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to Upper Case</button>
-        <button className="btn btn-danger mx-2 my-2" onClick={handleLoClick}>Convert to Lower Case</button>
-        <button className="btn btn-dark mx-2 my-2" onClick={handleCaClick}>Capitalize first Char</button>
-        <button className="btn btn-success mx-2 my-2" onClick={handleClClick}>Clear Text</button>
-        <button className="btn btn-warning mx-2 my-2" onClick={handleCopy}>Copy Text</button>
+        <button disabled={text.length===0}  className="btn btn-secondary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button disabled={text.length===0}  className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to Upper Case</button>
+        <button disabled={text.length===0}  className="btn btn-danger mx-2 my-2" onClick={handleLoClick}>Convert to Lower Case</button>
+        <button disabled={text.length===0}  className="btn btn-dark mx-2 my-2" onClick={handleCaClick}>Capitalize first Char</button>
+        <button disabled={text.length===0}  className="btn btn-success mx-2 my-2" onClick={handleClClick}>Clear Text</button>
+        <button disabled={text.length===0}  className="btn btn-warning mx-2 my-2" onClick={handleCopy}>Copy Text</button>
 
     </div>
     <div className="container my-4 " style={{color: props.mode==='light'?'black':'white'}}>
