@@ -60,7 +60,7 @@ function App() { //function
           <div className="container">
           <Routes>
           <Route exact path="/" element= {<TextForm heading="Enter the text to analyse: " mode={mode}/>} />
-          <Route exact path="/about" element={<About/>} />
+          <Route exact path="/about" element={<About mode={mode}/>} />
           </Routes>
           </div>
           </BrowserRouter>

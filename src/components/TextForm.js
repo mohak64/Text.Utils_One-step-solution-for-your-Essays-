@@ -58,23 +58,23 @@ export default function TextForm(props) {
   return (
     
       <>
-      <div className="container"style={{color: props.mode==='light'?'black':'white'}}>
+      <div className="container my-5"style={{color: props.mode==='light'?'black':'white'}}>
         <h1>{props.heading}</h1>
-        <div className="mb-3">
+        <div className="mb-3 my-2">
         
         <textarea className="form-control" value={text} style={ { backgroundColor: props.mode==='light'?'white':'#042743', color: props.mode==='light'?'black':'white'} } onChange={handleOnChange}/*taki type kr sku(value ko state variable ki tarah use kr rhe hai)*/ id="myBox" rows="11"></textarea>
         </div>
-        <button className="btn btn-secondary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Upper Case</button>
-        <button className="btn btn-danger mx-2" onClick={handleLoClick}>Convert to Lower Case</button>
-        <button className="btn btn-dark mx-2" onClick={handleCaClick}>Capitalize first Char</button>
-        <button className="btn btn-success mx-2" onClick={handleClClick}>Clear Text</button>
-        <button className="btn btn-warning mx-2" onClick={handleCopy}>Copy Text</button>
+        <button className="btn btn-secondary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to Upper Case</button>
+        <button className="btn btn-danger mx-2 my-2" onClick={handleLoClick}>Convert to Lower Case</button>
+        <button className="btn btn-dark mx-2 my-2" onClick={handleCaClick}>Capitalize first Char</button>
+        <button className="btn btn-success mx-2 my-2" onClick={handleClClick}>Clear Text</button>
+        <button className="btn btn-warning mx-2 my-2" onClick={handleCopy}>Copy Text</button>
 
     </div>
     <div className="container my-4 " style={{color: props.mode==='light'?'black':'white'}}>
       <h1>Your text summary</h1>
-      <p>{text.split(" ").length} words and {text.length} characters.</p>
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters.</p>
       <p> {0.008*(text.split(" ").length) } Minutes read</p>
       <h2>Preview </h2>
       <p>{text.length>0?text:"Enter something in the Text box above to preview it here... "}</p>
